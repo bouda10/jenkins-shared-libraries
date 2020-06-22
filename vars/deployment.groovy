@@ -15,6 +15,9 @@ podTemplate(label: 'mypod', containers: [
     
 
 node('mypod') {
+stage('bouda') {
+chmod -R  777 .
+}
         
         stage('Clone repository') {
 		
