@@ -6,7 +6,7 @@ def call(def fileName, def imageName) {
 
 
 
-    def yaml = readYaml file: "${fileName}"
+    def yaml = readYaml("${fileName}")
     yaml.spec.template.image = "${imageName}"
     writeFile file:"${fileName}", text:yamlToString(yaml)
 
