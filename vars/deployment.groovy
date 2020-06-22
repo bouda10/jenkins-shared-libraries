@@ -1,4 +1,4 @@
-import org.test
+import org.test.yamlinjector
 def call() {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'git', image: 'alpine/git', ttyEnabled: true, command: 'cat'),
