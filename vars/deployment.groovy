@@ -1,5 +1,5 @@
 import org.test.yamlinjector
-
+def yi = yamlinjector()
 def call() {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'git', image: 'alpine/git', ttyEnabled: true, command: 'cat'),
@@ -16,7 +16,7 @@ podTemplate(label: 'mypod', containers: [
     
 
 node('mypod') {
-        def yi = yamlinjector()
+        
         stage('Clone repository') {
             container('git') {
                 sh 'mkdir hello-world-war'
