@@ -17,14 +17,16 @@ podTemplate(label: 'mypod', containers: [
 node('mypod') {
         
         stage('Clone repository') {
+		
             container('git') {
+			dir('hello-world-war/') {
                 sh 'mkdir hello-world-war'
                 sh 'whoami'
                 sh 'hostname -i'
                 sh 'git clone -b master https://github.com/bouda10/spring-boot-maven-example-helloworld hello-world-war'
 				yamlinjector("bouda-deploy.yaml","nexus.do/bouda:latest")
             }
-        }
+        }}
 
         stage('Maven Build') {
             container('maven') {
