@@ -1,5 +1,4 @@
 
-@Library('shared-libraries') _
 def call() {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'git', image: 'alpine/git', ttyEnabled: true, command: 'cat'),
