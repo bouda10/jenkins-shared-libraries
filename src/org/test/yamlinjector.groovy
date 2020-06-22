@@ -1,4 +1,3 @@
-package org.test
 @Grab('org.yaml:snakeyaml:1.17')
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.DumperOptions
