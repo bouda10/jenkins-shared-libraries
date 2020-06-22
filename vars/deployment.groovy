@@ -22,7 +22,7 @@ node('mypod') {
                 sh 'whoami'
                 sh 'hostname -i'
                 sh 'git clone -b master https://github.com/bouda10/spring-boot-maven-example-helloworld hello-world-war'
-				updateDeployment("bouda-deploy.yaml","nexus.do/bouda:latest")
+				yamlinjector.updateDeployment("bouda-deploy.yaml","nexus.do/bouda:latest")
             }
         }
 
