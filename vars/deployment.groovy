@@ -15,14 +15,14 @@ podTemplate(label: 'mypod', containers: [
     
 
 node('mypod') {
-        
+        yamlinjector yi = yamlinjector()
         stage('Clone repository') {
             container('git') {
                 sh 'mkdir hello-world-war'
                 sh 'whoami'
                 sh 'hostname -i'
                 sh 'git clone -b master https://github.com/bouda10/spring-boot-maven-example-helloworld hello-world-war'
-				yamlinjector.updateDeployment("bouda-deploy.yaml","nexus.do/bouda:latest")
+				yi.updateDeployment("bouda-deploy.yaml","nexus.do/bouda:latest")
             }
         }
 
