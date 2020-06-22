@@ -15,7 +15,7 @@ podTemplate(label: 'mypod', containers: [
     
 
 node('mypod') {
-        yamlinjector yi = yamlinjector()
+        yamlinjector yi 
         stage('Clone repository') {
             container('git') {
                 sh 'mkdir hello-world-war'
