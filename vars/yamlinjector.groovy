@@ -8,6 +8,6 @@ dir('hello-world-war/') {
 sh 'ls -l'
     def yaml = readYaml(file: "${fileName}")
     yaml.spec.template.image = "${imageName}"
-    writeFile file:"${fileName}", text:yamlToString(yaml)
+    writeFile file:"${fileName}", text:(yaml)
 }
 }
