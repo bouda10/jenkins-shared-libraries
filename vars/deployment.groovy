@@ -1,5 +1,4 @@
-import org.test.yamlinjector
-
+@Library('shared-libraries') _
 def call() {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'git', image: 'alpine/git', ttyEnabled: true, command: 'cat'),
@@ -16,14 +15,14 @@ podTemplate(label: 'mypod', containers: [
     
 
 node('mypod') {
-        def yi = yamlinjector()
+        
         stage('Clone repository') {
             container('git') {
                 sh 'mkdir hello-world-war'
                 sh 'whoami'
                 sh 'hostname -i'
                 sh 'git clone -b master https://github.com/bouda10/spring-boot-maven-example-helloworld hello-world-war'
-				yi.updateDeployment("bouda-deploy.yaml","nexus.do/bouda:latest")
+				yamlinjector("bouda-deploy.yaml","nexus.do/bouda:latest")
             }
         }
 
