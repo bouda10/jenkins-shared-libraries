@@ -34,7 +34,6 @@ sh 'chmod -R  777 .'
         stage('Maven Build') {
             container('maven') {
                 dir('hello-world-war/') {
-				yamlinjector("bouda-deploy.yaml","nexus.do/bouda:latest")
                     sh 'hostname'
                     sh 'hostname -i'
                     sh 'mvn clean install'
