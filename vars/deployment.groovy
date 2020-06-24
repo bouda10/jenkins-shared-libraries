@@ -31,7 +31,7 @@ sh 'chmod -R  777 .'
 
         }}
 
-      /*  stage('Maven Build') {
+       stage('Maven Build') {
             container('maven') {
                 dir('hello-world-war/') {
                     sh 'hostname'
@@ -39,9 +39,9 @@ sh 'chmod -R  777 .'
                     sh 'mvn clean install'
                 }
             }
-        }*/
+        }
         
-    /*stage('build image ') {
+    stage('build image ') {
             container('docker') {
                 dir('hello-world-war/') {
                     sh' docker login  nexus.do --username admin --password admin123  '
@@ -50,7 +50,7 @@ sh 'chmod -R  777 .'
                     sh 'docker push  nexus.do/bouda:latest-${BUILD_NUMBER}'
                 }
             }
-        }*/
+        }
         
     stage('deploy image ') {
            //container('kubectl') {
