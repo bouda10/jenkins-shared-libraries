@@ -47,7 +47,7 @@ sh 'chmod -R  777 .'
                     sh' docker login  nexus.do --username admin --password admin123  '
                     sh'docker build -t nexus.do/bouda:latest-${BUILD_NUMBER} .'
                     sh'docker tag   nexus.do/bouda:latest-${BUILD_NUMBER} nexus.do/bouda:latest '
-                    sh 'docker push  nexus.do/bouda:latest-${BUILD_NUMBER}'
+                  //  sh 'docker push  nexus.do/bouda:latest-${BUILD_NUMBER}'
                 }
             }
         }
