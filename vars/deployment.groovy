@@ -57,7 +57,7 @@ sh 'chmod -R  777 .'
                 dir('hello-world-war/') {
                     kubernetesDeploy(
                             kubernetesDeploy(configs: 'bouda-deploy.yaml',
-                                    kubeConfig: [path: '/.kube/config'],
+                                   // kubeConfig: [path: '/.kube/config'],
                                     enableConfigSubstitution: true)
                     )
               //  sh 'kubectl apply -f bouda-deploy.yaml '
