@@ -56,9 +56,9 @@ sh 'chmod -R  777 .'
            container('kubectl') {
                 dir('hello-world-war/') {
                     kubernetesDeploy(
-                            kubernetesDeploy(configs: 'bouda-deploy.yaml',
+                            configs: 'bouda-deploy.yaml',
                                    // kubeConfig: [path: '/.kube/config'],
-                                    enableConfigSubstitution: true)
+                                    enableConfigSubstitution: true
                     )
               //  sh 'kubectl apply -f bouda-deploy.yaml '
                //  sh' kubectl expose deployment bouda --type=NodePort --port=8080 -n dev'
