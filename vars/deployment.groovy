@@ -27,7 +27,7 @@ sh 'chmod -R  777 .'
                 sh 'whoami'
                 sh 'hostname -i'
                 sh 'git clone -b master https://github.com/bouda10/spring-boot-maven-example-helloworld .'
-				yamlinjector("bouda-deploy.yaml","nexus.do/bouda:latest")
+			//	yamlinjector("bouda-deploy.yaml","nexus.do/bouda:latest")
 
         }}
 
@@ -41,7 +41,7 @@ sh 'chmod -R  777 .'
             }
         }
         
-    stage('build image ') {
+    /*stage('build image ') {
             container('docker') {
                 dir('hello-world-war/') {
                     sh' docker login  nexus.do --username admin --password admin123  '
@@ -50,13 +50,16 @@ sh 'chmod -R  777 .'
                     sh 'docker push  nexus.do/bouda:latest-${BUILD_NUMBER}'
                 }
             }
-        }
+        }*/
         
     stage('deploy image ') {
            container('kubectl') {
                 dir('hello-world-war/') {
-                sh 'kubectl apply -f bouda-deploy.yaml '  
-                 sh' kubectl expose deployment bouda --type=NodePort --port=8080 -n dev' 
+                    kubernetesDeploy(
+                            kubernetesDeploy configs: 'bouda-deploy.yaml', kubeConfig: [path: '/.kube/config'],enableConfigSubstitution: true
+                    )
+              //  sh 'kubectl apply -f bouda-deploy.yaml '
+               //  sh' kubectl expose deployment bouda --type=NodePort --port=8080 -n dev'
                 
             }
         }}
