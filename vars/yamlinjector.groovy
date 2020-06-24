@@ -8,8 +8,8 @@ def call(def fileName, def imageName) {
 
         sh 'ls -l'
         def yaml = readYaml file: "${fileName}"
-       // yaml.spec.template.image = "${imageName}"
-        echo yaml.spec.toString()
-       // writeFile file: "${fileName}", text: (yaml.toString())
+     yaml.spec.template.spec.containers=imageName}"
+
+        writeFile file: "${fileName}", text: (yaml.toString())
     }
 }
