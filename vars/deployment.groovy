@@ -31,7 +31,7 @@ sh 'chmod -R  777 .'
 
         }}
 
-        stage('Maven Build') {
+      /*  stage('Maven Build') {
             container('maven') {
                 dir('hello-world-war/') {
                     sh 'hostname'
@@ -39,7 +39,7 @@ sh 'chmod -R  777 .'
                     sh 'mvn clean install'
                 }
             }
-        }
+        }*/
         
     /*stage('build image ') {
             container('docker') {
