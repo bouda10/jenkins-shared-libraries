@@ -53,17 +53,18 @@ sh 'chmod -R  777 .'
         }*/
         
     stage('deploy image ') {
-           container('kubectl') {
+           //container('kubectl') {
                 dir('hello-world-war/') {
                     kubernetesDeploy(
                             configs: 'bouda-deploy.yaml',
+                            kubeconfigId: 'kubernetes',
                                    // kubeConfig: [path: '/.kube/config'],
                                     enableConfigSubstitution: true
                     )
               //  sh 'kubectl apply -f bouda-deploy.yaml '
                //  sh' kubectl expose deployment bouda --type=NodePort --port=8080 -n dev'
                 
-            }
+          //  }
         }}
     }
 	}
